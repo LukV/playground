@@ -1,15 +1,26 @@
 [project]
 name = "playground"
-version = "0.1.0"
+version = "0.0.0"
 description = "A batteries included project template for ML projects with Python."
 readme = "README.md"
 authors = [
     { name = "LukV", email = "luk.verhelst@gmail.com" }
 ]
 requires-python = ">=3.12"
+license = { file = "LICENSE" }
+
 dependencies = [
+    "commitizen>=4.1.1",
     "fastapi[standard]>=0.115.8",
     "typer>=0.15.1",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pre-commit>=4.1.0",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.9.2",
 ]
 
 [project.scripts]
@@ -20,18 +31,14 @@ dev = [
     "ruff>=0.9.4",
 ]
 
-[tool.ruff]
-line-length = 79
-
-[tool.ruff.lint]
-extend-select = [
-    "E501",
-    "UP",
-    "D"
-]
-
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
+
+[tool.commitizen]  # https://commitizen-tools.github.io/commitizen/config/
+bump_message = "bump: v$current_version → v$new_version"
+tag_format = "v$version"
+update_changelog_on_bump = true
+version_provider = "pep621"
