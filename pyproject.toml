@@ -1,7 +1,7 @@
 [project]
 name = "playground"
 version = "0.1.0"
-description = "An opinionated project template for ML projects with Python."
+description = "A batteries included project template for ML projects with Python."
 readme = "README.md"
 authors = [
     { name = "LukV", email = "luk.verhelst@gmail.com" }
@@ -19,3 +19,19 @@ cli = "backend.core.cli:app"
 dev = [
     "ruff>=0.9.4",
 ]
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+extend-select = [
+    "E501",
+    "UP",
+    "D"
+]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
