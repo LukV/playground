@@ -1,0 +1,21 @@
+[project]
+name = "playground"
+version = "0.1.0"
+description = "An opinionated project template for ML projects with Python."
+readme = "README.md"
+authors = [
+    { name = "LukV", email = "luk.verhelst@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.115.8",
+    "typer>=0.15.1",
+]
+
+[project.scripts]
+cli = "backend.core.cli:app"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9.4",
+]
